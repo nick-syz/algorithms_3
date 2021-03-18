@@ -12,5 +12,5 @@ def BubbleSortStep(array):
     for i in range(1, len(array)):
         if array[i-1] > array[i]:
             array[i-1], array[i] = array[i], array[i-1]
-            changes = True
+            changed = True
     return changed
