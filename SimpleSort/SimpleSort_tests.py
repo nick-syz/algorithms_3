@@ -13,8 +13,8 @@ class SimpleSortTest(TestCase):
 
     def test_sort2(self):
         b = [4, 3, 1, 2]
-        self.assertTrue(BubbleSortStep(b))
-        self.assertTrue(BubbleSortStep(b))
         self.assertFalse(BubbleSortStep(b))
         self.assertFalse(BubbleSortStep(b))
+        self.assertTrue(BubbleSortStep(b))
+        self.assertTrue(BubbleSortStep(b))
 

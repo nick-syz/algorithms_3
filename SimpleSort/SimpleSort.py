@@ -8,9 +8,9 @@ def SelectionSortStep(array, i):
     array[j], array[i] = array[i], array[j]
 
 def BubbleSortStep(array):
-    changed = False
+    is_sorted = True
     for i in range(1, len(array)):
         if array[i-1] > array[i]:
             array[i-1], array[i] = array[i], array[i-1]
-            changed = True
-    return changed
+            is_sorted = False
+    return is_sorted
