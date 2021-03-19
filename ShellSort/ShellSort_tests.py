@@ -21,4 +21,4 @@ class ShellSortTest(TestCase):
         self.assertEqual([13,4,1], seq2)
 
         seq3 = KnuthSequence(0)
-        self.assertFalse(len(seq3))
+        self.assertEqual([1], seq3)

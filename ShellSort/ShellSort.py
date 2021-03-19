@@ -9,6 +9,8 @@ def InsertionSortStep(array, step, i):
 def KnuthSequence(array_size, k_seq=None, i=1):
     if k_seq is None:
         k_seq = []
+    if not array_size:
+        return [1]
     if array_size >= i:
         KnuthSequence(array_size, k_seq, 3*i+1)
         k_seq.append(i)
