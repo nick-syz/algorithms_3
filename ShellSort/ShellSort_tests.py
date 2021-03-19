@@ -12,6 +12,13 @@ class ShellSortTest(TestCase):
         for i in seq:
             InsertionSortStep(arr, i, 0)
         
-        print(check_arr)
         self.assertEqual(seq, [40,13,4,1])
         self.assertEqual(arr, sorted(check_arr))
+        
+        self.assertEqual(1, len(KnuthSequence(1)))
+        
+        seq2 = KnuthSequence(13)
+        self.assertEqual([13,4,1], seq2)
+
+        seq3 = KnuthSequence(0)
+        self.assertFalse(len(seq3))
