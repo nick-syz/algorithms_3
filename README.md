@@ -1,1 +1,2 @@
-# 3 Структуры данных и алгоритмы: Python
+# 3 Data Structures and Algorithms: Python
+## Sorting and searching algorithms
