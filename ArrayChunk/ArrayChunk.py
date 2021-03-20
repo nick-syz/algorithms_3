@@ -1,7 +1,7 @@
 # https://skillsmart.ru/algo/15-121-cm/r71p8f1a17.html
 
 def ArrayChunk(M):
-    N = len(M) // 2
+    N = len(M)//2
     i1 = 0
     i2 = len(M)-1
     while True:
@@ -16,3 +16,7 @@ def ArrayChunk(M):
             return N
         if M[i1] >= M[N] and M[i2] <= M[N]:
             M[i1], M[i2] = M[i2], M[i1]
+            if i1 == N:
+                N = i2
+            elif i2 == N:
+                N = i1
