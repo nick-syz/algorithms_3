@@ -3,7 +3,7 @@
 def ArrayChunk(array, left, right):
     i = left
     j = right
-    N = len(array[i:j+1])//2 + i
+    N = (i + j) // 2
     while True:
         if array[i] < array[N]:
             i += 1
