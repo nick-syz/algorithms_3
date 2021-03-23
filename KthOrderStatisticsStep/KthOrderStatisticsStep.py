@@ -22,10 +22,11 @@ def ArrayChunk(array, left, right):
                 N = i
 
 def KthOrderStatisticsStep(Array, L, R, k):
-    N = ArrayChunk(Array, L, R)
-    if N != k:
-        if N < k:
-            return KthOrderStatisticsStep(Array, N+1, R, k)
+    while True:
+        N = ArrayChunk(Array, L, R)
+        if k == N:
+            return [L, R]
+        elif k < N:
+            R = N - 1
         else:
-            return KthOrderStatisticsStep(Array, L, N-1, k)
-    return [L, R]
+            L = N + 1
