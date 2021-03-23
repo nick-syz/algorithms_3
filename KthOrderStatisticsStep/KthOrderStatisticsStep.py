@@ -3,7 +3,7 @@
 def ArrayChunk(array, left, right):
     i = left
     j = right
-    N = (i + j) // 2
+    N = (i + j + 1) // 2
     while True:
         if array[i] < array[N]:
             i += 1
@@ -24,9 +24,9 @@ def ArrayChunk(array, left, right):
 def KthOrderStatisticsStep(Array, L, R, k):
     while True:
         N = ArrayChunk(Array, L, R)
-        if k == N:
-            return [L, R]
-        elif k < N:
+        if N == k:
+            return [L,R]
+        elif N > k:
             R = N - 1
         else:
             L = N + 1
