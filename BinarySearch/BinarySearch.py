@@ -9,7 +9,7 @@ class BinarySearch:
         self.Status = None
 
     def Step(self, N):
-        middle = self.Array[(self.Left+self.Right)//2]
+        middle = self.Array[(self.Left+self.Right+1)//2]
         if N == middle:
             self.Status = 1    
         else:
