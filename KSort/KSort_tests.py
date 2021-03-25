@@ -16,10 +16,16 @@ class KSortTest(TestCase):
         self.assertEqual(arr, res)
 
         self.assertIsNone(k_sort.items[k_sort.index('b01')])
-
+        
     def test_check(self):
         k_sort = ksort()
         self.assertFalse(k_sort.add('y12'))
         self.assertFalse(k_sort.add('12'))
         self.assertFalse(k_sort.add('y123'))
-
+    
+    def test_index(self):
+        k_sort = ksort()
+        self.assertEqual(164, k_sort.index('b64'))
+        self.assertEqual(11, k_sort.index('a11'))
+        self.assertEqual(101, k_sort.index('b01'))
+        self.assertEqual(110, k_sort.index('b10'))

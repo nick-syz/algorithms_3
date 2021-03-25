@@ -13,7 +13,7 @@ class ksort:
 
     def index(self, s):
         if self.check(s):
-            return (ord(s[0])-97)*37 + int(s[1])*7 + int(s[2])
+            return (ord(s[0])*100 + int(s[1])*10 + int(s[2])) - 9700
         return -1
 
     def add(self, s):
