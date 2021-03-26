@@ -2,7 +2,7 @@ from BinarySearch import BinarySearch
 from unittest import TestCase
 
 class BinarySearchTest(TestCase):
-
+    
     def test_search(self):
         a = [1,2,3,4,5,6,7]
         search = BinarySearch(a)
@@ -20,7 +20,7 @@ class BinarySearchTest(TestCase):
         search = BinarySearch(a)
         search.Step(3)
         self.assertEqual(-1, search.GetResult())
-
+    
     def test_search4(self):
         a = [1,2,3,4,5,6,7]
         search = BinarySearch(a)

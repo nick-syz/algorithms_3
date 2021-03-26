@@ -6,23 +6,27 @@ class BinarySearch:
         self.Array = array
         self.Left = 0
         self.Right = len(array)-1
-        self.Status = None
+        self.Status = 0
 
     def Step(self, N):
-        middle = self.Array[(self.Left+self.Right+1)//2]
-        if N == middle:
-            self.Status = 1    
-        else:
-            if N > middle:
-                self.Left = (self.Left+self.Right)//2 + 1
+        if self.Status == 0:
+            middle = self.Array[(self.Left+self.Right+1)//2]
+            if N == middle:
+                self.Status = 1    
             else:
-                self.Right = (self.Left+self.Right)//2 - 1
-            if N in (self.Array[self.Right], self.Array[self.Left]):
-                self.Status = 1
-            elif self.Left == self.Right:
-                self.Status = -1
-            else:
-                self.Status = 0
+                if N > middle:
+                    self.Left = (self.Left+self.Right+1)//2 + 1
+                else:
+                    self.Right = (self.Left+self.Right+1)//2 - 1
+                if self.Right > 0 and self.Left < len(self.Array):
+                    if N in (self.Array[self.Right], self.Array[self.Left]):
+                        self.Status = 1
+                    elif self.Right == self.Left:
+                        self.Status = -1
+                    else:
+                        self.Status = 0
+                else:
+                    self.Status = -1
 
     def GetResult(self):
         return self.Status
