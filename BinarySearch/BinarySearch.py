@@ -32,22 +32,21 @@ class BinarySearch:
     def GetResult(self):
         return self.Status
 
-    def GallopingSearch(self, arr, N, i=1):
-        j = 2**i-2
-        if j < len(arr)-1:
-            if arr[j] == N:
-                return True
-            if arr[j] < N:
-                return self.GallopingSearch(arr, N, i+1)
-        else:
-            j = len(arr)-1
-        self.Left = 2**(i-1)-1
-        self.Right = j
-        self.Array = arr
-        self.Status = 0
-        while self.Status == 0:
-            self.Step(N)
-        if self.Status == -1:
-            return False
-        else:
+def GallopingSearch(arr, N, i=1):
+    j = 2**i-2
+    if j < len(arr)-1:
+        if arr[j] == N:
             return True
+        if arr[j] < N:
+            return GallopingSearch(arr, N, i+1)
+    else:
+        j = len(arr)-1
+    search = BinarySearch(arr)
+    search.Left = 2**(i-1)-1
+    search.Right = j
+    while search.Status == 0:
+        search.Step(N)
+    if search.Status == -1:
+        return False
+    else:
+        return True
