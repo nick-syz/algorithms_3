@@ -92,3 +92,16 @@ class BinarySearchTest(TestCase):
         self.assertEqual(1, search.GetResult())
         self.assertEqual(48, search.Left)
         self.assertEqual(48, search.Right)
+    
+    def test_galloping(self):
+        a = [i for i in range(1, 100)]
+        search = BinarySearch([])
+
+        self.assertTrue(search.GallopingSearch(a, 5))
+        self.assertFalse(search.GallopingSearch(a, -1))
+        self.assertFalse(search.GallopingSearch(a, 100))
+        self.assertTrue(search.GallopingSearch(a, 50))
+        self.assertTrue(search.GallopingSearch(a, 99))
+        self.assertFalse(search.GallopingSearch(a, 1000))
+        self.assertTrue(search.GallopingSearch(a, 50))
+        self.assertFalse(search.GallopingSearch(a, -1000))
