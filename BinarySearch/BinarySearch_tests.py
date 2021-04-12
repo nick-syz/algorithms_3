@@ -104,3 +104,5 @@ class BinarySearchTest(TestCase):
         self.assertFalse(GallopingSearch(a, 1000))
         self.assertTrue(GallopingSearch(a, 50))
         self.assertFalse(GallopingSearch(a, -1000))
+
+        self.assertFalse(GallopingSearch([], 5))
