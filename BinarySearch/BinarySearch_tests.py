@@ -8,32 +8,32 @@ class BinarySearchTest(TestCase):
         search = BinarySearch(a)
         search.Step(2)
         self.assertEqual(0, search.GetResult())
-        self.assertEqual(0, search.Left)
-        self.assertEqual(2, search.Right)
+        self.assertEqual(0, search.Left_index)
+        self.assertEqual(2, search.Right_index)
 
     def test_search1(self):
         a = [1,2,3,4,5,6,7]
         search = BinarySearch(a)
         search.Step(4)
         self.assertEqual(1, search.GetResult())
-        self.assertEqual(0, search.Left)
-        self.assertEqual(6, search.Right)
+        self.assertEqual(0, search.Left_index)
+        self.assertEqual(6, search.Right_index)
 
     def test_search3(self):
         a = [1,2]
         search = BinarySearch(a)
         search.Step(3)
         self.assertEqual(-1, search.GetResult())
-        self.assertEqual(1, search.Left)
-        self.assertEqual(1, search.Right)
+        self.assertEqual(1, search.Left_index)
+        self.assertEqual(1, search.Right_index)
     
     def test_search3_1(self):
         a = [1,2]
         search = BinarySearch(a)
         search.Step(0)
         self.assertEqual(-1, search.GetResult())
-        self.assertEqual(0, search.Left)
-        self.assertEqual(-1, search.Right)
+        self.assertEqual(0, search.Left_index)
+        self.assertEqual(-1, search.Right_index)
 
     def test_search4(self):
         a = [1,2,3,4,5,6,7]
@@ -42,8 +42,8 @@ class BinarySearchTest(TestCase):
         while search.GetResult() == 0:
             search.Step(7)
         self.assertEqual(1, search.GetResult())
-        self.assertEqual(6, search.Left)
-        self.assertEqual(6, search.Right)
+        self.assertEqual(6, search.Left_index)
+        self.assertEqual(6, search.Right_index)
 
     def test_search5(self):
         a = [1,2,4,6,7,9,10]
@@ -51,13 +51,13 @@ class BinarySearchTest(TestCase):
         
         search.Step(3)
         self.assertEqual(0, search.GetResult())
-        self.assertEqual(0, search.Left)
-        self.assertEqual(2, search.Right)
+        self.assertEqual(0, search.Left_index)
+        self.assertEqual(2, search.Right_index)
         
         search.Step(3)
         self.assertEqual(-1, search.GetResult())
-        self.assertEqual(2, search.Left)
-        self.assertEqual(2, search.Right)
+        self.assertEqual(2, search.Left_index)
+        self.assertEqual(2, search.Right_index)
     
     def test_search6(self):
         a = [i for i in range(1, 100)]
@@ -65,33 +65,33 @@ class BinarySearchTest(TestCase):
 
         search.Step(49)
         self.assertEqual(0, search.GetResult())
-        self.assertEqual(0, search.Left)
-        self.assertEqual(48, search.Right)
+        self.assertEqual(0, search.Left_index)
+        self.assertEqual(48, search.Right_index)
 
         search.Step(49)
         self.assertEqual(0, search.GetResult())
-        self.assertEqual(25, search.Left)
-        self.assertEqual(48, search.Right)
+        self.assertEqual(25, search.Left_index)
+        self.assertEqual(48, search.Right_index)
 
         search.Step(49)
         self.assertEqual(0, search.GetResult())
-        self.assertEqual(37, search.Left)
-        self.assertEqual(48, search.Right)
+        self.assertEqual(37, search.Left_index)
+        self.assertEqual(48, search.Right_index)
 
         search.Step(49)
         self.assertEqual(0, search.GetResult())
-        self.assertEqual(43, search.Left)
-        self.assertEqual(48, search.Right)
+        self.assertEqual(43, search.Left_index)
+        self.assertEqual(48, search.Right_index)
 
         search.Step(49)
         self.assertEqual(0, search.GetResult())
-        self.assertEqual(46, search.Left)
-        self.assertEqual(48, search.Right)
+        self.assertEqual(46, search.Left_index)
+        self.assertEqual(48, search.Right_index)
 
         search.Step(49)
         self.assertEqual(1, search.GetResult())
-        self.assertEqual(48, search.Left)
-        self.assertEqual(48, search.Right)
+        self.assertEqual(48, search.Left_index)
+        self.assertEqual(48, search.Right_index)
     
     def test_galloping(self):
         a = [i for i in range(1, 100)]

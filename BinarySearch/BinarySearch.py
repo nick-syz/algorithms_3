@@ -5,48 +5,48 @@ class BinarySearch:
 
     def __init__(self, array):
         self.Array = array
-        self.Left = 0
-        self.Right = len(array)-1
-        self.Status = 0
+        self.Left_index = 0
+        self.Right_index = len(array)-1
+        self.Finding_status = 0
     
-    def Step(self, N):
-        if self.Status == 0:
-            middle = (self.Left+self.Right) // 2
-            if self.Left > self.Right:
-                self.Status = -1
+    def Step(self, Finding_value):
+        if self.Finding_status == 0:
+            middle_index = (self.Left_index+self.Right_index) // 2
+            if self.Left_index > self.Right_index:
+                self.Finding_status = -1
                 return
-            if N == self.Array[middle]:
-                self.Status = 1
-            elif N > self.Array[middle]:
-                self.Left = middle + 1
+            if Finding_value == self.Array[middle_index]:
+                self.Finding_status = 1
+            elif Finding_value > self.Array[middle_index]:
+                self.Left_index = middle_index + 1
             else:
-                self.Right = middle - 1
-            if self.Left > self.Right:
-                self.Status = -1
-            elif self.Right-self.Left <= 1:
-                if N in (self.Array[self.Left], self.Array[self.Right]):
-                    self.Status = 1
+                self.Right_index = middle_index - 1
+            if self.Left_index > self.Right_index:
+                self.Finding_status = -1
+            elif self.Right_index-self.Left_index <= 1:
+                if Finding_value in (self.Array[self.Left_index], self.Array[self.Right_index]):
+                    self.Finding_status = 1
                     return
-                self.Status = -1
+                self.Finding_status = -1
     
     def GetResult(self):
-        return self.Status
+        return self.Finding_status
 
-def GallopingSearch(arr, N, i=1):
-    j = 2**i-2
-    if j < len(arr)-1:
-        if arr[j] == N:
+def GallopingSearch(array, finding_value, start_index=1):
+    current_index = 2**start_index-2
+    if current_index < len(array)-1:
+        if array[current_index] == finding_value:
             return True
-        if arr[j] < N:
-            return GallopingSearch(arr, N, i+1)
+        if array[current_index] < finding_value:
+            return GallopingSearch(array, finding_value, start_index+1)
     else:
-        j = len(arr)-1
-    search = BinarySearch(arr)
-    search.Left = 2**(i-1)-1
-    search.Right = j
-    while search.Status == 0:
-        search.Step(N)
-    if search.Status == -1:
+        current_index = len(array)-1
+    searcher = BinarySearch(array)
+    searcher.Left_index = 2**(start_index-1)-1
+    searcher.Right_index = current_index
+    while searcher.Finding_status == 0:
+        searcher.Step(finding_value)
+    if searcher.Finding_status == -1:
         return False
     else:
         return True
